@@ -44,11 +44,11 @@ img {
   padding-right: 15px;
 }
 
-.header {
+.page-header {
   border-bottom: 1px solid #e7e9fc;
 }
 
-.header .container {
+.page-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,10 +79,6 @@ img {
   gap: 40px;
 }
 
-.nav-item {
-  padding: 24px 0;
-}
-
 .nav-link {
   display: block;
   font-size: 16px;
@@ -91,11 +87,31 @@ img {
   letter-spacing: 0.02em;
   color: var(--secondary-color);
   padding: 24px 0;
+  position: relative;
 }
 
 .nav-link:hover,
 .nav-link:focus {
   color: var(--interactive-color);
+}
+
+.current {
+  color: var(--interactive-color);
+}
+
+.current::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.current:hover::after,
+.current:focus::after {
+  background-color: var(--interactive-color);
 }
 
 .address-style {
@@ -125,6 +141,17 @@ img {
 }
 
 .hero-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/people-office.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   background-color: var(--secondary-bacground-color);
   padding: 188px 0;
 }
@@ -181,7 +208,18 @@ img {
 }
 
 .advantages-item {
-  flex-basis: calc((100% - 72px) / 4);
+  width: calc((100% - 72px) / 4);
+}
+
+.advantages-icon-box {
+  width: 264px;
+  height: 112px;
+  flex-shrink: 0;
+  padding: 24px 100px;
+  margin-bottom: 8px;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  background-color: #f4f4fd;
 }
 
 .advantages-title {
@@ -224,9 +262,17 @@ img {
   flex-basis: calc((100% - 72px) / 4);
   border-radius: 0px 0px 4px 4px;
   background-color: var(--primary-bacground-color);
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .team-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
   padding: 32px 0;
 }
 
@@ -237,7 +283,6 @@ img {
   letter-spacing: 0.02em;
   color: var(--secondary-color);
   text-align: center;
-  margin-bottom: 8px;
 }
 
 .team-text {
@@ -245,6 +290,26 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+}
+
+.team-social-list {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.team-social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+}
+
+.team-social-icons {
+  fill: #fff;
 }
 
 .portfolio-list {
