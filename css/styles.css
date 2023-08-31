@@ -1,8 +1,8 @@
 :root {
   --primary-color: #434455;
   --secondary-color: #2e2f42;
-  --primary-bacground-color: #fff;
-  --secondary-bacground-color: #2e2f42;
+  --primary-background-color: #fff;
+  --secondary-background-color: #2e2f42;
   --accent-color: #4d5ae5;
   --interactive-color: #404bbf;
 }
@@ -88,6 +88,7 @@ img {
   color: var(--secondary-color);
   padding: 24px 0;
   position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
@@ -100,17 +101,13 @@ img {
 }
 
 .current::after {
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  content: "";
   width: 48px;
   height: 4px;
   border-radius: 2px;
-}
-
-.current:hover::after,
-.current:focus::after {
   background-color: var(--interactive-color);
 }
 
@@ -128,6 +125,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--primary-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-link:hover,
@@ -182,6 +180,7 @@ img {
   padding: 16px 32px;
   border: none;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
@@ -261,7 +260,7 @@ img {
 .team-item {
   flex-basis: calc((100% - 72px) / 4);
   border-radius: 0px 0px 4px 4px;
-  background-color: var(--primary-bacground-color);
+  background-color: var(--primary-background-color);
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
@@ -305,11 +304,17 @@ img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #4d5ae5;
+  background-color: var(--accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-social-link:hover,
+.team-social-link:focus {
+  background-color: var(--interactive-color);
 }
 
 .team-social-icons {
-  fill: #fff;
+  fill: #f4f4fd;
 }
 
 .portfolio-list {
@@ -322,6 +327,46 @@ img {
 
 .portfolio-item {
   flex-basis: calc((100% - 48px) / 3);
+  box-shadow: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-box-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  padding-top: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateY(100%);
+  transition: transform, 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay-text {
+  width: 296px;
+  height: 96px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f4f4fd;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.portfolio-item:hover .overlay {
+  transform: translateY(0);
 }
 
 .portfolio-box {
@@ -346,8 +391,12 @@ img {
 }
 
 .footer-background {
-  background-color: var(--secondary-bacground-color);
+  background-color: var(--secondary-background-color);
   padding: 100px 0;
+}
+
+footer > .container {
+  display: flex;
 }
 
 .logo-footer {
@@ -372,4 +421,50 @@ img {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+
+.footer-social {
+  margin-left: 120px;
+}
+
+.footer-social-text {
+  min-width: 96px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.footer-social-list {
+  display: inline-flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.footer-social-item {
+  background-color: inherit;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-item:hover,
+.footer-social-item:focus {
+  background-color: var(--primary-background-color);
+}
+
+.footer-social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-icons {
+  fill: #f4f4fd;
 }
